@@ -1,6 +1,6 @@
 import React from "react";
-import { signInWithPopup } from "firebase/auth";
-import {auth, provider} from "../../config/firebase/config";
+// import { signInWithPopup } from "firebase/auth";
+// import {auth, provider} from "../../config/firebase/config";
 import { FaGoogle } from "react-icons/fa";
 
 interface SignInProps {
@@ -11,15 +11,17 @@ export default function SignIn({setAuthData}: SignInProps){
 
 
     const handleClick = () => {
-        signInWithPopup(auth, provider).then((result) => {
-            setAuthData({
-                email: result.user.email,
-                name: result.user.displayName,
-                photo: result.user.photoURL
-            });
-        }).catch((error) => {
-            console.log(error);
-        });
+        // signInWithPopup(auth, provider).then((result) => {
+        //     setAuthData({
+        //         email: result.user.email,
+        //         name: result.user.displayName,
+        //         photo: result.user.photoURL
+        //     });
+        // }).catch((error) => {
+        //     console.log(error);
+        // });
+        
+        window.location.href = "/api/authRedirect";
     }  
 
     return(

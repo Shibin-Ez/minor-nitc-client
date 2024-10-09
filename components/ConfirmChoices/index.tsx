@@ -3,9 +3,9 @@ import LoadingSpinner from "../LoadingSpinner";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios, { AxiosError } from "axios";
-import { loggedInUser } from "@/AppConstants";
+// import { loggedInUser } from "@/AppConstants";
 import { BASE_URL } from "@/AppConstants";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import PreferenceCard from "../Cards/ChoicesCard";
 
 interface ConfirmPreferencesProps {
@@ -42,7 +42,7 @@ export default function ConfirmPreferences({
         progress: undefined,
     });
 
-    const userId = useSelector((state: any) => state.auth.userId);
+    const userId = localStorage.getItem("userId");
 
     const handleConfirm = async () => {
         setLoading(true);
