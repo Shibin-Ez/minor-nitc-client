@@ -10,13 +10,9 @@ export default function Courses() {
     {
       _id: "",
       name: "",
-      code: "",
-      department: "",
       faculty: "",
       facultyEmail: "",
-      credit: 0,
-      description: "",
-      schedule: "",
+      fileURL: "",
     },
   ]);
 
@@ -36,8 +32,13 @@ export default function Courses() {
 
   React.useEffect(() => {
     fetchCoursesData();
-    const userId = localStorage.getItem('userId');
-    if(userId == null || userId == undefined || userId == "" || userId.length == 0) {
+    const userId = localStorage.getItem("userId");
+    if (
+      userId == null ||
+      userId == undefined ||
+      userId == "" ||
+      userId.length == 0
+    ) {
       window.location.href = "/";
     }
   }, []);

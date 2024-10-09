@@ -156,14 +156,11 @@ export default function Allotment() {
   }, []);
 
   const [allotedCourse, setAllotedCourse] = useState({
+    _id: "",
     name: "",
-    code: "",
-    department: "",
     faculty: "",
     facultyEmail: "",
-    credit: 0,
-    description: "",
-    schedule: "",
+    fileURL: "",
   });
 
   const fetchAllotedCourse = async () => {

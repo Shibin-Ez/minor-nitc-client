@@ -9,12 +9,6 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
-  const [authData, setAuthData] = useState<any>({
-    email: "",
-    name: "",
-    photo: "",
-  });
-
   const router = useRouter();
 
   const failureNotify = () =>
@@ -61,7 +55,7 @@ export default function Home() {
           />
         </div>
         <p>NITC MINOR ALLOCATION PORTAL</p>
-        <SignIn setAuthData={setAuthData} />
+        <SignIn />
       </div>
       <ToastContainer />
     </div>
