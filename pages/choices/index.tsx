@@ -245,7 +245,7 @@ export default function Allotment() {
       case "verificationEnd":
         if (studentData === null) return <LoadingSpinner />;
         return (
-          <div className="w-full min-h-screen pb-20 flex items-center justify-center">
+          <div className="w-full min-h-screen pb-20 px-3 flex items-center justify-center text-center">
             <p className="dark:text-white text-black">
               Data verification period has end. Choice Filling not started
             </p>
@@ -274,12 +274,24 @@ export default function Allotment() {
       case "choiceFillingEnd":
         if (studentData === null) return <LoadingSpinner />;
         return (
-          <div className="w-full min-h-screen pb-20 flex flex-col items-center justify-center">
+          <div className="w-full min-h-screen pb-20 flex flex-col items-center justify-center text-center">
             <p className="dark:text-white text-black">
               Choice Filling process finished. Result has not published
             </p>
           </div>
         );
+      
+      case "resultPublished":
+        if (studentData === null) return <LoadingSpinner />;
+        if (userAlloted.isAlloted == false) {
+          return (
+            <div className="w-full min-h-screen pb-20 flex flex-col items-center justify-center">
+              <p className="dark:text-white text-black">
+                Sorry, you don't have any Minor alloted
+              </p>
+            </div>
+          );
+        }
     }
   };
 
@@ -337,10 +349,10 @@ export default function Allotment() {
         </div>
       );
     } else {
-      if (isUserChosenAllotment && !loading) {
+      if (isUserChosenAllotment && timeline !== "resultPublished" && !loading) {
         return (
           <div className="w-full min-h-screen pb-20 flex flex-col items-center justify-center">
-            <p className="dark:text-white text-black mb-5">
+            <p className="dark:text-white text-black mb-5 mt-10">
               You have already chosen your preferences!
             </p>
             {allChoices.length > 0 && (
